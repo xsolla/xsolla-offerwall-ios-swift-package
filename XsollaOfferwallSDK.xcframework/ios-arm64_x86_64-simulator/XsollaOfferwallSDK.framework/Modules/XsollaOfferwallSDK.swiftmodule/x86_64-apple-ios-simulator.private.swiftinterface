@@ -1,0 +1,55 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name XsollaOfferwallSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
+import Foundation
+import ObjectiveC
+import SafariServices
+import Swift
+import UIKit
+import WebKit
+@_spi(InternalApi) import XsollaMobileSDK
+@_exported import XsollaOfferwallSDK
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os.log
+import os
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(XMOfferwallManager) @objcMembers @_Concurrency.MainActor public class OfferwallManager : ObjectiveC.NSObject {
+  @objc(shared) @_Concurrency.MainActor public static var shared: XsollaOfferwallSDK.OfferwallManager
+  @objc(showWithSettings:completion:) @_Concurrency.MainActor public func show(_ settings: XsollaOfferwallSDK.OfferwallSettings, completion: (((any Swift.Error)?) -> Swift.Void)? = nil)
+  @_spi(InternalApi) @nonobjc @_Concurrency.MainActor public func createViewController(_ settings: XsollaOfferwallSDK.OfferwallSettings, completion: (((any Swift.Error)?) -> Swift.Void)? = nil) -> UIKit.UIViewController?
+  @objc(dismissAnimated:) @_Concurrency.MainActor public func dismiss(animated: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(XMOfferwallPrivacyPolicy) @objcMembers public class OfferwallPrivacyPolicy : ObjectiveC.NSObject {
+  @objc public var subjectToGDPR: Foundation.NSNumber?
+  @objc public var userConsent: Swift.String?
+  @objc public var belowConsentAge: Foundation.NSNumber?
+  @objc public var usPrivacy: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(XMOfferwallSettings) @objcMembers public class OfferwallSettings : ObjectiveC.NSObject {
+  @objc public var placementId: Swift.String
+  @objc public var rootViewController: UIKit.UIViewController?
+  @objc public var supportedOrientations: UIKit.UIInterfaceOrientationMask
+  @objc public var skipOrientationForPad: Swift.Bool
+  @_spi(InternalApi) @nonobjc public var presentationForPad: UIKit.UIModalPresentationStyle
+  @objc public var userId: Swift.String?
+  @objc public var customQueryParameters: [Swift.String : Swift.String]?
+  @objc public var privacyPolicy: XsollaOfferwallSDK.OfferwallPrivacyPolicy?
+  @objc public var allowsBackForwardNavigationGestures: Swift.Bool
+  @_spi(InternalApi) @nonobjc public var showsOverlayCloseButton: Swift.Bool
+  @objc public var logLevel: XsollaMobileSDK.SKLogLevel {
+    @objc get
+    @objc set
+  }
+  @objc required public init(placementId: Swift.String)
+  @objc convenience public init(placementId: Swift.String, rootViewController: UIKit.UIViewController?, userId: Swift.String? = nil)
+  public func loadUserId(from accessToken: XsollaMobileSDK.AccessTokenInfo)
+  @objc(loadUserIdFromAccessToken:) public func loadUserId(from accessToken: XsollaMobileSDK.XMAccessTokenInfo)
+  @objc convenience public init(copying other: XsollaOfferwallSDK.OfferwallSettings)
+  @objc deinit
+}
+extension XsollaOfferwallSDK.OfferwallManager : Swift.Sendable {}
