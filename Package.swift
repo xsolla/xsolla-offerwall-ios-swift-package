@@ -18,7 +18,7 @@ let package = Package(
         .binaryTarget(
             name: "XsollaOfferwallSDK",
             url: "https://cdn.xsolla.net/offerwallsdk-bucket-prod/release/0.3.0/XsollaOfferwallSDK.xcframework.zip",
-            checksum: "2c0a46c06c2e8d065dbbf1e16797ffe24fd54f5d92a6787eb972c8479f530b31"
+            checksum: "3441588a9864e84704c6f280c9537c30ec9161a2e7f066e903e5903f79411f9a"
         ),
     ]
 )
